@@ -1,7 +1,7 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=400px height=200px src="./docs/openai.webp" alt="Project logo"></a>
- <img width=200px height=200px src="./docs/logseq.png" alt="Project logo"></a>
+ <img height=200px src="./docs/logo.jpg" alt="Project logo"></a>
+ <img height=200px src="./docs/logseq.png" alt="Project logo"></a>
 </p>
 
 <h3 align="center">logseq-plugin-gemini</h3>
@@ -17,7 +17,7 @@
 
 ---
 
-<p align="center"> A plugin for GPT-3 AI assisted note taking in Logseq. Uses OpenAI's ChatGPT API `gpt-3.5-turbo` model by default.
+<p align="center"> A plugin for Gemini AI assisted note taking in Logseq. Uses Gemini API `gemini-1.5-flash` model by default.
     <br>
 </p>
 
