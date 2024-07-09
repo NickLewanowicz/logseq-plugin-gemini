@@ -1,8 +1,8 @@
-import { SettingSchemaDesc } from "@logseq/libs/dist/LSPlugin";
-import { DalleImageSize, OpenAIOptions } from "./openai";
+import { SettingSchemaDesc } from "@logseq/libs/dist/LSPlugin"
+import { DalleImageSize, OpenAIOptions } from "./openai"
 
 interface PluginOptions extends OpenAIOptions {
-  injectPrefix?: string;
+  injectPrefix?: string
 }
 
 export const settingsSchema: SettingSchemaDesc[] = [
@@ -10,30 +10,23 @@ export const settingsSchema: SettingSchemaDesc[] = [
     key: "openAIKey",
     type: "string",
     default: "",
-    title: "OpenAI API Key",
+    title: "Gemini API Key",
     description:
-      "Your OpenAI API key. You can get one at https://beta.openai.com",
+      "Your Gemini API key. You can get one at https://aistudio.google.com/app/",
   },
   {
     key: "openAICompletionEngine",
     type: "string",
-    default: "gpt-3.5-turbo",
+    default: "gemini-1.5-flash",
     title: "OpenAI Completion Engine",
     description: "See Engines in OpenAI docs.",
-  },
-  {
-    key: "chatCompletionEndpoint",
-    type: "string",
-    default: "https://api.openai.com/v1",
-    title: "OpenAI API Completion Endpoint",
-    description: "The endpoint to use for OpenAI API completion requests. You shouldn't need to change this."
   },
   {
     key: "chatPrompt",
     type: "string",
     default: "Do not refer to yourself in your answers. Do not say as an AI language model...",
-    title: "OpenAI Chat Prompt",
-    description: "Initial message that tells ChatGPT how to answer. Only used for gpt-3.5. See https://platform.openai.com/docs/guides/chat/introduction for more info.",
+    title: "Gemini Chat Prompt",
+    description: "Initial message that tells Gemini how to answer. Only used for gpt-3.5. See https://platform.openai.com/docs/guides/chat/introduction for more info.",
   },
   {
     key: "openAITemperature",
@@ -41,7 +34,7 @@ export const settingsSchema: SettingSchemaDesc[] = [
     default: 1.0,
     title: "OpenAI Temperature",
     description:
-      "The temperature controls how much randomness is in the output.<br/>"+
+      "The temperature controls how much randomness is in the output.<br/>" +
       "You can set a different temperature in your own prompt templates by adding a 'prompt-template' property to the block.",
   },
   {
@@ -82,23 +75,22 @@ export const settingsSchema: SettingSchemaDesc[] = [
     title: "Keyboard Shortcut for /gpt popup",
     description: ""
   },
-];
+]
 
 function unescapeNewlines(s: string) {
-  return s.replace(/\\n/g, "\n");
+  return s.replace(/\\n/g, "\n")
 }
 
 export function getOpenaiSettings(): PluginOptions {
-  const apiKey = logseq.settings!["openAIKey"];
-  const completionEngine = logseq.settings!["openAICompletionEngine"];
-  const injectPrefix = unescapeNewlines(logseq.settings!["injectPrefix"]);
-  const temperature = Number.parseFloat(logseq.settings!["openAITemperature"]);
-  const maxTokens = Number.parseInt(logseq.settings!["openAIMaxTokens"]);
+  const apiKey = logseq.settings!["openAIKey"]
+  const completionEngine = logseq.settings!["openAICompletionEngine"]
+  const injectPrefix = unescapeNewlines(logseq.settings!["injectPrefix"])
+  const temperature = Number.parseFloat(logseq.settings!["openAITemperature"])
+  const maxTokens = Number.parseInt(logseq.settings!["openAIMaxTokens"])
   const dalleImageSize = Number.parseInt(
     logseq.settings!["dalleImageSize"]
-  ) as DalleImageSize;
-  const chatPrompt = logseq.settings!["chatPrompt"];
-  const completionEndpoint = logseq.settings!["chatCompletionEndpoint"];
+  ) as DalleImageSize
+  const chatPrompt = logseq.settings!["chatPrompt"]
   return {
     apiKey,
     completionEngine,
@@ -107,6 +99,5 @@ export function getOpenaiSettings(): PluginOptions {
     dalleImageSize,
     injectPrefix,
     chatPrompt,
-    completionEndpoint,
-  };
+  }
 }

@@ -1,8 +1,8 @@
 {
-  "name": "logseq-plugin-gpt3-openai",
-  "author": "Brian Sunter",
+  "name": "logseq-plugin-gemini",
+  "author": "Nicholas Lewanowicz",
   "private": true,
-  "version": "1.13.2",
+  "version": "0.0.1",
   "main": "dist/index.html",
   "scripts": {
     "dev": "vite",
@@ -28,6 +28,7 @@
     "vite-plugin-logseq": "^1.1.2"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.14.1",
     "@headlessui/react": "^1.7.7",
     "@heroicons/react": "^2.0.13",
     "@logseq/libs": "^0.0.10",
@@ -44,8 +45,8 @@
     "use-immer": "^0.8.1"
   },
   "logseq": {
-    "name": "logseq-plugin-gpt3-openai",
-    "id": "_79n711y6e"
+    "name": "logseq-plugin-gemini",
+    "id": "nicklewanowicz-logseq-plugin-gemini"
   },
   "peerDependencies": {
     "semantic-release": "^19.0.2"
